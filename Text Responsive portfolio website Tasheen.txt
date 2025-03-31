@@ -26,15 +26,15 @@ COMPLETED PROJECTS
 COMPANIES WORKED
 
 .home__info-description .home__info-number
-Hi, I'm Chris, Frontend Developer.
+Hi, I'm Tasheen, Fullstack Developer.
 Passionate about designing beautiful web
-interfaces. Based in Perú.
+sites. Based in Sri Lanka.
 
-Lima, Perú <br>
-chrismayer@email.com <br>
-+51 9876543210 <br>
+Tasheen, Ambalangoda,Sri Lanka <br>
+darshikatasheen99@gmail.com <br>
++94 766940529 <br>
 
-Website Design <br>
+Website Develop <br>
 UI/UX Design <br>
 Animation <br>
 
