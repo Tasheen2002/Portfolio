@@ -25,9 +25,38 @@ const linkAction = () => {
   navMenu.classList.remove("show-menu");
 };
 navLink.forEach((n) => n.addEventListener("click", linkAction));
+
 /*=============== SWIPER PROJECTS ===============*/
+let swiperProjects = new Swiper(".projects_container", {
+  loop: true,
+  spaceBetween: 24,
+
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    1200: {
+      slidesPerView: 2,
+      spaceBetween: -56,
+    },
+  },
+  mousewheel: true,
+  keyboard: true,
+});
 
 /*=============== SWIPER TESTIMONIAL ===============*/
+let swiperTestomial = new Swiper(".testimonial_container", {
+  grabCursor: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
 
 /*=============== EMAIL JS ===============*/
 
