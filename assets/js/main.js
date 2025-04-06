@@ -30,7 +30,6 @@ navLink.forEach((n) => n.addEventListener("click", linkAction));
 let swiperProjects = new Swiper(".projects_container", {
   loop: true,
   spaceBetween: 24,
-
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
@@ -38,12 +37,6 @@ let swiperProjects = new Swiper(".projects_container", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
-  },
-  breakpoints: {
-    1200: {
-      slidesPerView: 2,
-      spaceBetween: -56,
-    },
   },
   mousewheel: true,
   keyboard: true,
@@ -55,6 +48,10 @@ let swiperTestomial = new Swiper(".testimonial_container", {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
   },
 });
 
@@ -70,19 +67,23 @@ const sendEmail = (e) => {
   e.preventDefault();
 
   // Check if the field has a value
-  if (contactProject.value === "" || contactName.value === "" || contactEmail.value === "" || contactMessage.value === "") {
+  if (
+    contactProject.value === "" ||
+    contactName.value === "" ||
+    contactEmail.value === "" ||
+    contactMessage.value === ""
+  ) {
     // Add and remove color
     contactMessage.classList.remove("contact-blue");
     contactMessage.classList.add("contact-red");
 
     // Show message
     contactMessage.textContent = "Write the all input fields";
-  }
-  else{
+  } else {
     // serviceID - templateID - #formID-publicKey
-    emailjs.sendForm('service_2j5sg5f', '', '', '')
+    emailjs.sendForm("service_fic5ebn", "", "", "");
   }
-}
+};
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 
