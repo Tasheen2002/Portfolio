@@ -142,14 +142,17 @@ body.dark-theme {
 .section_title {
   font-size: var(--h1-font-size);
   font-weight: var(--font-semi-bold);
-  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  color: var(--title-color);
 }
 
 .section_subtitle {
-  display: block;
   font-size: var(--small-font-size);
   color: var(--text-color-light);
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  text-transform: capitalize;
 }
 
 .main {
@@ -834,9 +837,59 @@ body.dark-theme {
   color: hsl(207, 56%, 45%);
 }
 
-
 /*=============== FOOTER ===============*/
+.footer_container {
+  padding: 3rem 0 7rem;
+  text-align: center;
+}
 
+.footer_title {
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: 1rem;
+}
+
+.footer_list,
+footer_social {
+  display: flex;
+  justify-content: center;
+}
+
+.footer_list {
+  margin: 2.5rem 0;
+  column-gap: 2.5rem;
+}
+
+.footer_link {
+  color: var(--title-color);
+}
+
+.footer_link:hover {
+  color: var(--text-color-light);
+}
+
+.footer_social {
+  column-gap: 2.5rem;
+  margin: 2.5rem 0;
+}
+
+.footer_social-link {
+  display: inline-block;
+  font-size: 1.25rem;
+  color: var(--title-color);
+  transition: transform 0.3s;
+}
+
+.footer_social-link:hover {
+  transform: translateY(-0.15rem);
+}
+
+.footer_copy {
+  display: block;
+  margin-top: 4.5rem;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+}
 /*=============== SCROLL BAR ===============*/
 
 /*=============== SCROLL UP ===============*/
