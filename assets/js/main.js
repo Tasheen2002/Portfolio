@@ -30,6 +30,7 @@ navLink.forEach((n) => n.addEventListener("click", linkAction));
 let swiperProjects = new Swiper(".projects_container", {
   loop: true,
   spaceBetween: 24,
+
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
@@ -37,6 +38,12 @@ let swiperProjects = new Swiper(".projects_container", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
+  },
+  breakpoints: {
+    1200: {
+      slidesPerView: 2,
+      spaceBetween: -56,
+    },
   },
   mousewheel: true,
   keyboard: true,
@@ -48,10 +55,6 @@ let swiperTestomial = new Swiper(".testimonial_container", {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
   },
 });
 
@@ -81,7 +84,7 @@ const sendEmail = (e) => {
     contactMessage.textContent = "Write the all input fields";
   } else {
     // serviceID - templateID - #formID-publicKey
-    emailjs.sendForm("service_fic5ebn", "", "", "");
+    emailjs.sendForm("service_2j5sg5f", "", "", "");
   }
 };
 
