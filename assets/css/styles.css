@@ -248,6 +248,10 @@ body.dark-theme {
 }
 
 /* Active link */
+.active-link {
+  color: var(--title-color);
+}
+
 
 /*=============== HOME ===============*/
 .home_container {
@@ -891,6 +895,18 @@ footer_social {
   color: var(--text-color-light);
 }
 /*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+  width: 0.6rem;
+  border-radius: 0.5rem;
+  background-color: hsl(207, 4%, 75%);
+}
+::-webkit-scrollbar-thumb {
+  background-color: hsl(207, 4%, 65%);
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb :hover {
+  background-color: hsl(207, 4%, 55%);
+}
 
 /*=============== SCROLL UP ===============*/
 
