@@ -60,6 +60,30 @@ let swiperTestomial = new Swiper(".testimonial_container", {
 
 /*=============== EMAIL JS ===============*/
 
+const ContactForm = document.getElementById("contact-form"),
+  contactProject = document.getElementById("contact-project"),
+  contactName = document.getElementById("contact-name"),
+  contactEmail = document.getElementById("contact-email"),
+  contactMessage = document.getElementById("contact-message");
+
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  // Check if the field has a value
+  if (contactProject.value === "" || contactName.value === "" || contactEmail.value === "" || contactMessage.value === "") {
+    // Add and remove color
+    contactMessage.classList.remove("contact-blue");
+    contactMessage.classList.add("contact-red");
+
+    // Show message
+    contactMessage.textContent = "Write the all input fields";
+  }
+  else{
+    // serviceID - templateID - #formID-publicKey
+    emailjs.sendForm('service_2j5sg5f', '', '', '')
+  }
+}
+
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 
 /*=============== SHOW SCROLL UP ===============*/
