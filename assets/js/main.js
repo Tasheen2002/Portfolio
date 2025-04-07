@@ -188,3 +188,4 @@ sr.reveal(`.skills_content:nth-child(2), .contact_content:nth-child(2)`, {
   origin: "right",
 });
 sr.reveal(`.qualification_content, .services_card`, { interval: 100 });
+// sr.reveal(`.about_container`, { interval: 100 });
