@@ -612,6 +612,140 @@ body.dark-theme {
 .services_card:hover .services_border {
   opacity: 1;
 }
+/*=============== ABOUT ME ===============*/
+.about_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.about_content {
+  background-color: var(--container-color);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about_content:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+}
+
+.about_title {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: 1rem;
+}
+
+.about_title i {
+  font-size: 1.5rem;
+  color: var(--first-color);
+  transition: color 0.3s, transform 0.3s;
+}
+
+.about_title i:hover {
+  color: var(--title-color);
+  transform: rotate(15deg);
+}
+
+.about_description {
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.about_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about_list li {
+  font-size: var(--normal-font-size);
+  color: var(--text-color-light);
+  margin-bottom: 0.5rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.about_list li:hover {
+  color: var(--title-color);
+  transform: translateX(0.5rem);
+}
+
+/*=============== ACHIEVEMENTS & INTERESTS ===============*/
+.about_content {
+  background-color: var(--container-color);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about_list li {
+  font-size: var(--normal-font-size);
+  color: var(--text-color-light);
+  margin-bottom: 0.5rem;
+}
+
+/*=============== SKILLS HOVER ANIMATIONS ===============*/
+
+/* Hover effect for skills_blob */
+.skills_blob {
+  width: 80px;
+  height: 100px;
+  background-color: var(--container-color);
+  border-radius: 3rem;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.skills_blob:hover {
+  transform: translateY(-0.5rem);
+  background-color: var(--container-color);
+}
+
+.skills_blob img {
+  width: 40px;
+  transition: transform 0.3s;
+}
+
+.skills_blob:hover img {
+  transform: scale(1.1);
+}
+
+/* Hover effect for skills_name */
+.skills_name {
+  font-size: var(--small-font-size);
+  margin-bottom: 0.25rem;
+  transition: color 0.3s;
+}
+
+.skills_name:hover {
+  color: var(--first-color);
+}
+
+/* Hover effect for skills_subtitle */
+.skills_subtitle {
+  font-size: var(--tiny-font-size);
+  color: var(--text-color-light);
+  transition: color 0.3s;
+}
+
+.skills_subtitle:hover {
+  color: var(--title-color);
+}
+
 /*=============== PROJECTS ===============*/
 
 .projects_container {
@@ -1094,6 +1228,17 @@ footer_social {
   }
 }
 
+/* For small devices */
+@media screen and (max-width: 768px) {
+  .about_container {
+    grid-template-columns: 1fr;
+  }
+
+  .skills_info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* For large devices */
 @media screen and (min-width: 1023px) {
   .header {
@@ -1161,6 +1306,17 @@ footer_social {
   }
   .dark-theme .bg-header {
     box-shadow: 0 6px 24px hsla(207, 24%, 8%, 0.6);
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+  .about_container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .skills_info {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
