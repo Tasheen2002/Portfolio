@@ -60,33 +60,77 @@ let swiperTestomial = new Swiper(".testimonial_container", {
 
 /*=============== EMAIL JS ===============*/
 
-const ContactForm = document.getElementById("contact-form"),
-  contactProject = document.getElementById("contact-project"),
-  contactName = document.getElementById("contact-name"),
-  contactEmail = document.getElementById("contact-email"),
-  contactMessage = document.getElementById("contact-message");
+const contactForm = document.getElementById("contact-form"),
+  contactProject = document.getElementById("contactProject"),
+  contactName = document.getElementById("contactName"),
+  contactEmail = document.getElementById("contactEmail"),
+  contactMessage = document.getElementById("contactMessage");
+
+// Initialize EmailJS
+emailjs.init("1ohWDV__PZXKUoxS-"); // Replace with your actual Public Key
 
 const sendEmail = (e) => {
   e.preventDefault();
 
-  // Check if the field has a value
+  // Check if the fields have values
   if (
     contactProject.value === "" ||
     contactName.value === "" ||
-    contactEmail.value === "" ||
-    contactMessage.value === ""
+    contactEmail.value === ""
   ) {
     // Add and remove color
     contactMessage.classList.remove("contact-blue");
     contactMessage.classList.add("contact-red");
 
     // Show message
-    contactMessage.textContent = "Write the all input fields";
+    contactMessage.textContent = "Please fill in all fields.";
   } else {
-    // serviceID - templateID - #formID-publicKey
-    emailjs.sendForm("service_2j5sg5f", "", "", "");
+    // Send the email
+    emailjs
+      .sendForm(
+        "service_s0vfu9e", // Your Service ID
+        "template_9umwdfk", // Your Template ID
+        "#contact-form", // Your form selector
+        "1ohWDV__PZXKUoxS-" // Your Public Key
+      )
+      .then(
+        (response) => {
+          console.log("Email sent successfully!", response); // Debug success
+
+          // Show success message
+          contactMessage.classList.remove("contact-red");
+          contactMessage.classList.add("contact-blue");
+          contactMessage.textContent = "Message sent successfully!";
+
+          // Clear the form after 5 seconds
+          setTimeout(() => {
+            contactMessage.textContent = "";
+            contactForm.reset();
+          }, 5000);
+        },
+        (error) => {
+          console.error("Failed to send email:", error); // Debug error
+
+          // Show error message
+          contactMessage.classList.remove("contact-blue");
+          contactMessage.classList.add("contact-red");
+          contactMessage.textContent =
+            "Failed to send message. Please try again.";
+        }
+      );
   }
 };
+
+// Clear validation message on input
+[contactName, contactEmail, contactProject].forEach((field) => {
+  field.addEventListener("input", () => {
+    contactMessage.textContent = "";
+    contactMessage.classList.remove("contact-red");
+  });
+});
+
+// Add event listener to the form
+contactForm.addEventListener("submit", sendEmail);
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll("section[id]");
@@ -180,11 +224,60 @@ const sr = ScrollReveal({
 sr.reveal(
   `.home_data, .projects_container, .testimonial_container, .footer_container`
 );
-sr.reveal(`.home_info div`, { delay: 600, origin: "bottom", interval: 100 });
+sr.reveal(`.home_info div`, { delay: 200, origin: "bottom", interval: 50 });
 sr.reveal(`.skills_content:nth-child(1), .contact_content:nth-child(1)`, {
   origin: "left",
 });
 sr.reveal(`.skills_content:nth-child(2), .contact_content:nth-child(2)`, {
   origin: "right",
 });
-sr.reveal(`.qualification_content, .services_card`, { interval: 100 });
+sr.reveal(`.education_content, .services_card`, { interval: 100 });
+sr.reveal(`.about_container`, { interval: 100 });
+
+const typingEffectElement = document.getElementById("typing-effect");
+const roles = [
+  "Frontend Developer",
+  "Backend Developer",
+  "Fullstack Developer",
+];
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeEffect() {
+  const currentRole = roles[roleIndex];
+  if (isDeleting) {
+    typingEffectElement.textContent = currentRole.substring(0, charIndex--);
+  } else {
+    typingEffectElement.textContent = currentRole.substring(0, charIndex++);
+  }
+
+  if (!isDeleting && charIndex === currentRole.length) {
+    isDeleting = true;
+    setTimeout(typeEffect, 1000); // Pause before deleting
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    roleIndex = (roleIndex + 1) % roles.length; // Move to the next role
+    setTimeout(typeEffect, 500); // Pause before typing the next role
+  } else {
+    setTimeout(typeEffect, isDeleting ? 50 : 100); // Typing and deleting speed
+  }
+}
+
+// Start the typing effect
+typeEffect();
+
+// Add ripple effect to the button
+document.querySelectorAll(".button").forEach((button) => {
+  button.addEventListener("click", function (e) {
+    const ripple = document.createElement("span");
+    ripple.classList.add("ripple");
+    ripple.style.left = `${e.clientX - button.offsetLeft}px`;
+    ripple.style.top = `${e.clientY - button.offsetTop}px`;
+    this.appendChild(ripple);
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 600); // Remove ripple after animation
+  });
+});
